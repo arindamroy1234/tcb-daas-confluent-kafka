@@ -1,0 +1,20 @@
+# Specific Confluent Cloud Configuration file.
+# This profile with inherit all properties from application.yml
+# But will override properties:
+# spring.kafka.bootstrap-servers and schema.registry.url (part of spring.kafka.properties)
+
+spring:
+  kafka:
+    bootstrap-servers: pkc-2396y.us-east-1.aws.confluent.cloud:9092
+    properties:
+      ssl.endpoint.identification.algorithm: https
+      sasl.mechanism: PLAIN
+      request.timeout.ms: 20000
+      security.protocol: SASL_SSL
+      retry.backoff.ms: 500
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='DVFXRYTX4J47QU4H' password='vQ8bf36XIAAq4DmLfv8//cv1AohFxC1/wrcE2VnnMrHTM/TSYFreuDIvYkdO4inn';
+
+      # Schema Registry specific settings
+      schema.registry.url: https://psrc-nx65v.us-east-2.aws.confluent.cloud
+      basic.auth.credentials.source: USER_INFO
+      schema.registry.basic.auth.user.info: NV35PQZ5ZDMZRI26:WdH8e/Nf9y1qOPuG7HWn4K0IbAPTwy+EdKxwh5Aio9e0w17F2TymK1WqGbfjMpDm
